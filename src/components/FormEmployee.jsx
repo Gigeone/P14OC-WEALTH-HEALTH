@@ -5,6 +5,8 @@ import { createEmployee } from "../Redux/slice";
 import TextField from "./FormComponents/TextField";
 import DatePickerField from "./FormComponents/DatePickerField";
 import SelectField from "./FormComponents/SelectField";
+import { departments } from "../Datas/departments";
+import { states } from "../Datas/states";
 // import { useState } from "react";
 
 const FormEmployee = () => {
@@ -83,11 +85,10 @@ const FormEmployee = () => {
             id="state"
             register={register}
             required
-            options={[
-              { value: "CA", label: "California" },
-              { value: "TX", label: "Texas" },
-              { value: "NY", label: "New York" },
-            ]}
+            options={states.map((state) => ({
+              value: state.abbreviation,
+              label: state.name,
+            }))}
             errors={errors}
           />
           <TextField
@@ -104,13 +105,10 @@ const FormEmployee = () => {
           id="department"
           register={register}
           required
-          options={[
-            { value: "Sales", label: "Sales" },
-            { value: "Marketing", label: "Marketing" },
-            { value: "Engineering", label: "Engineering" },
-            { value: "Human Resources", label: "Human Resources" },
-            { value: "Legal", label: "Legal" },
-          ]}
+          options={departments.map((department) => ({
+            value: department.name,
+            label: department.name,
+          }))}
           errors={errors}
         />
 
