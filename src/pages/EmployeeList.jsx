@@ -1,6 +1,7 @@
 import React from "react";
 import TableEmployee from "../components/TableEmployee";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const EmployeeList = () => {
   return (
@@ -13,6 +14,7 @@ const EmployeeList = () => {
         </div>
       </header>
       <TableEmployee />
+      <Link to="/">Home</Link>
     </div>
   );
 };

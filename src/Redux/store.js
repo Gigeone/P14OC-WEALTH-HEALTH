@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import employeeReducer from "../redux/features/employee"
+import employeeReducer from "../Redux/slice.js"
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
       employee: employeeReducer
   }
 })
+
+export default store

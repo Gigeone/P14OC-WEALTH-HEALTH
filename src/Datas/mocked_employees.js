@@ -1,8 +1,8 @@
 export const employees = [
     {
       id: 1,
-      first_name: "Lucia",
-      last_name: "Bourque",
+      first_name: "Matthieu",
+      last_name: "Giraud-Heraud",
       date_birthday: "24/07/1992",
       start_date: "07/11/2021",
       street: "41 Rue des Vénitiens",
@@ -13,8 +13,8 @@ export const employees = [
     },
     {
       id: 2,
-      first_name: "Corentin",
-      last_name: "Butte",
+      first_name: "Charlene",
+      last_name: "Faucheux",
       date_birthday: "20/11/1993",
       start_date: "09/01/2018",
       street: "10 Rue Homme de fer",
@@ -25,8 +25,8 @@ export const employees = [
     },
     {
       id: 3,
-      first_name: "Juliette",
-      last_name: "Richard",
+      first_name: "Fabien",
+      last_name: "Roux",
       date_birthday: "18/10/2003",
       start_date: "29/06/2020",
       street: "58 Avenue de la Libération",
@@ -37,8 +37,8 @@ export const employees = [
     },
     {
       id: 4,
-      first_name: "Edward",
-      last_name: "Manson",
+      first_name: "Vincent",
+      last_name: "Dubois",
       date_birthday: "19/08/2000",
       start_date: "14/08/2005",
       street: "10 Rue de La Poste",
@@ -50,7 +50,7 @@ export const employees = [
     {
       id: 5,
       first_name: "Alice",
-      last_name: "Neverland",
+      last_name: "Poirier",
       date_birthday: "11/01/1988",
       start_date: "24/04/2001",
       street: "1 Ter le Lapin",
@@ -61,8 +61,8 @@ export const employees = [
     },
     {
       id: 6,
-      first_name: "Gilles",
-      last_name: "Lebeau",
+      first_name: "Anthony",
+      last_name: "Choin",
       date_birthday: "18/13/1970",
       start_date: "27/07/1992",
       street: "18 rue de la Coiffeuse",
@@ -73,7 +73,7 @@ export const employees = [
     },
     {
       id: 7,
-      first_name: "René",
+      first_name: "Eric",
       last_name: "Junior",
       date_birthday: "28/09/1978",
       start_date: "22/05/1990",

@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CreateEmployee from "./pages/CreateEmployee";
 import EmployeeList from "./pages/EmployeeList";
 import "normalize.css";
+import "./App.css";
 
 function App() {
   return (
