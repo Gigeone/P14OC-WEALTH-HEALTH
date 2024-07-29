@@ -1,8 +1,10 @@
-import { useForm, Controller } from "react-hook-form";
-import DatePicker from "react-datepicker";
+import { useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
 import { createEmployee } from "../Redux/slice";
+import TextField from "./FormComponents/TextField";
+import DatePickerField from "./FormComponents/DatePickerField";
+import SelectField from "./FormComponents/SelectField";
 // import { useState } from "react";
 
 const FormEmployee = () => {
@@ -31,105 +33,86 @@ const FormEmployee = () => {
   return (
     <div>
       <form id="create-employee" onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="first-name">First Name</label>
-        <input
-          type="text"
-          id="first-name"
-          {...register("first_name", { required: "First name is required" })}
+        <TextField
+          label="First Name"
+          id="first_name"
+          register={register}
+          required
+          errors={errors}
         />
-        {errors.firstName && <p>{errors.firstName.message}</p>}
-
-        <label htmlFor="last-name">Last Name</label>
-        <input
-          type="text"
-          id="last-name"
-          {...register("last_name", { required: "Last name is required" })}
+        <TextField
+          label="Last Name"
+          id="last_name"
+          register={register}
+          required
+          errors={errors}
         />
-        {errors.lastName && <p>{errors.lastName.message}</p>}
-
-        <label htmlFor="date-of-birth">Date of Birth</label>
-        <Controller
+        <DatePickerField
+          label="Date of Birth"
+          id="date_birthday"
           control={control}
-          name="date_birthday"
-          rules={{ required: "Date of birth is required" }}
-          render={({ field }) => (
-            <DatePicker
-              selected={field.value}
-              onChange={field.onChange}
-              placeholderText="Select date"
-            />
-          )}
+          required
+          errors={errors}
         />
-        {errors.dateOfBirth && <p>{errors.dateOfBirth.message}</p>}
-
-        <label htmlFor="start-date">Start Date</label>
-        <Controller
+        <DatePickerField
+          label="Start Date"
+          id="start_date"
           control={control}
-          name="start_date"
-          rules={{ required: "Start date is required" }}
-          render={({ field }) => (
-            <DatePicker
-              selected={field.value}
-              onChange={field.onChange}
-              placeholderText="Select date"
-            />
-          )}
+          required
+          errors={errors}
         />
-        {errors.startDate && <p>{errors.startDate.message}</p>}
 
         <fieldset className="address">
           <legend>Address</legend>
-
-          <label htmlFor="street">Street</label>
-          <input
-            type="text"
+          <TextField
+            label="Street"
             id="street"
-            {...register("street", { required: "Street is required" })}
+            register={register}
+            required
+            errors={errors}
           />
-          {errors.street && <p>{errors.street.message}</p>}
-
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
+          <TextField
+            label="City"
             id="city"
-            {...register("city", { required: "City is required" })}
+            register={register}
+            required
+            errors={errors}
           />
-          {errors.city && <p>{errors.city.message}</p>}
-
-          <label htmlFor="state">State</label>
-          <select
+          <SelectField
+            label="State"
             id="state"
-            {...register("state", { required: "State is required" })}
-          >
-            {/* Populate with state options */}
-            <option value="">Select State</option>
-            <option value="CA">California</option>
-            <option value="TX">Texas</option>
-            <option value="NY">New York</option>
-          </select>
-          {errors.state && <p>{errors.state.message}</p>}
-
-          <label htmlFor="zip-code">Zip Code</label>
-          <input
-            type="number"
-            id="zip-code"
-            {...register("zip_code", { required: "Zip code is required" })}
+            register={register}
+            required
+            options={[
+              { value: "CA", label: "California" },
+              { value: "TX", label: "Texas" },
+              { value: "NY", label: "New York" },
+            ]}
+            errors={errors}
           />
-          {errors.zipCode && <p>{errors.zipCode.message}</p>}
+          <TextField
+            label="Zip Code"
+            id="zip_code"
+            register={register}
+            required
+            errors={errors}
+          />
         </fieldset>
 
-        <label htmlFor="department">Department</label>
-        <select
+        <SelectField
+          label="Department"
           id="department"
-          {...register("department", { required: "Department is required" })}
-        >
-          <option value="Sales">Sales</option>
-          <option value="Marketing">Marketing</option>
-          <option value="Engineering">Engineering</option>
-          <option value="Human Resources">Human Resources</option>
-          <option value="Legal">Legal</option>
-        </select>
-        {errors.department && <p>{errors.department.message}</p>}
+          register={register}
+          required
+          options={[
+            { value: "Sales", label: "Sales" },
+            { value: "Marketing", label: "Marketing" },
+            { value: "Engineering", label: "Engineering" },
+            { value: "Human Resources", label: "Human Resources" },
+            { value: "Legal", label: "Legal" },
+          ]}
+          errors={errors}
+        />
 
         <button type="submit">Save</button>
       </form>
