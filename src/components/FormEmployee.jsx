@@ -1,12 +1,13 @@
-import { useForm } from "react-hook-form";
 import "react-datepicker/dist/react-datepicker.css";
+import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { createEmployee } from "../Redux/slice";
-import TextField from "./FormComponents/TextField";
-import DatePickerField from "./FormComponents/DatePickerField";
-import SelectField from "./FormComponents/SelectField";
 import { departments } from "../Datas/departments";
 import { states } from "../Datas/states";
+import { createEmployee } from "../Redux/slice";
+import DatePickerField from "./FormComponents/DatePickerField";
+import SelectField from "./FormComponents/SelectField";
+import SubmitButton from "./FormComponents/SubmitButton";
+import TextField from "./FormComponents/TextField";
 // import { useState } from "react";
 
 const FormEmployee = () => {
@@ -112,7 +113,7 @@ const FormEmployee = () => {
           errors={errors}
         />
 
-        <button type="submit">Save</button>
+        <SubmitButton text="Save" type="submit" />
       </form>
     </div>
   );

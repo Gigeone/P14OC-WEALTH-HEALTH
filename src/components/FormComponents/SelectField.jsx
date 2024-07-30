@@ -1,5 +1,3 @@
-import React from "react";
-
 const SelectField = ({ label, id, register, required, options, errors }) => (
   <>
     <label htmlFor={id}>{label}</label>
