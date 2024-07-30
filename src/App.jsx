@@ -1,8 +1,9 @@
+import "normalize.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
 import CreateEmployee from "./pages/CreateEmployee";
 import EmployeeList from "./pages/EmployeeList";
-import "normalize.css";
-import "./App.css";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<CreateEmployee />} />
         <Route path="/employee-list" element={<EmployeeList />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );
