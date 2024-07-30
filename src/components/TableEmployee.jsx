@@ -1,3 +1,4 @@
+// import { format } from "date-fns";
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -24,8 +25,21 @@ const TableEmployee = () => {
     () => [
       { Header: "First Name", accessor: "first_name" },
       { Header: "Last Name", accessor: "last_name" },
-      { Header: "Date of Birth", accessor: "date_birthday" },
-      { Header: "Start Date", accessor: "start_date" },
+      {
+        Header: "Date of Birth",
+        accessor: "date_birthday",
+        // Cell: ({ value }) => {
+        //   console.log(value);
+        //   return format(value, "dd/MM/yyyy");
+        // },
+      },
+      {
+        Header: "Start Date",
+        accessor: "start_date",
+        // Cell: ({ value }) => {
+        //   return format(value, "dd/MM/yyyy");
+        // },
+      },
       { Header: "Street", accessor: "street" },
       { Header: "City", accessor: "city" },
       { Header: "State", accessor: "state" },

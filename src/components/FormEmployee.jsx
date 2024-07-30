@@ -27,9 +27,11 @@ const FormEmployee = () => {
     control,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
-    data.date_birthday = data.date_birthday.toISOString().split("T")[0];
-    data.start_date = data.start_date.toISOString().split("T")[0];
+    console.log(data);
+    data.date_birthday = data.date_birthday.toLocaleDateString("fr-FR");
+    data.start_date = data.start_date.toLocaleDateString("fr-FR");
     dispatch(createEmployee(data));
   };
 
