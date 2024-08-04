@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from "react-hook-form";
+import { Modal } from "react-modal-component-matthieugh";
 import { useDispatch } from "react-redux";
 import { departments } from "../Datas/departments";
 import { states } from "../Datas/states";
@@ -8,10 +10,15 @@ import DatePickerField from "./FormComponents/DatePickerField";
 import SelectField from "./FormComponents/SelectField";
 import SubmitButton from "./FormComponents/SubmitButton";
 import TextField from "./FormComponents/TextField";
-// import { useState } from "react";
 
+// const Modal = () =>
+//   import("react-modal-component-from-mathgh").then((module) => {
+//     return { default: module.Modal };
+//   });
 const FormEmployee = () => {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(true);
+  // const [loading, setLoading] = useState(true);
   // const [firstName, setFirstName] = useState("");
   // const [lastName, setLastName] = useState("");
   // const [dateOfBirth, setDateOfBirth] = useState(null);
@@ -33,6 +40,7 @@ const FormEmployee = () => {
     data.date_birthday = data.date_birthday.toLocaleDateString("fr-FR");
     data.start_date = data.start_date.toLocaleDateString("fr-FR");
     dispatch(createEmployee(data));
+    setIsOpen(true);
   };
 
   return (
@@ -115,8 +123,17 @@ const FormEmployee = () => {
           errors={errors}
         />
 
-        <SubmitButton text="Save" type="submit" />
+        <SubmitButton
+          // onClick={() => setIsOpen(true)}
+          text="Save"
+          type="submit"
+        />
+        {/* <button onClick={() => setIsOpen(true)}>Open Modal</button> */}
       </form>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        {/* <h1>Hello from Modal</h1> */}
+        <p>Employee added</p>
+      </Modal>
     </div>
   );
 };
