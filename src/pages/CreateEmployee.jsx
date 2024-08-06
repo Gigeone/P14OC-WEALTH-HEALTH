@@ -1,19 +1,17 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import FormEmployee from "../components/FormEmployee";
-import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
 
 const CreateEmployee = () => {
   return (
     <div className="App">
       <header className="title">
-        <img className="form-logo" src={logo} alt="Wealth Health's logo" />
-        <h3>
-          <strong>Wealth Health</strong> <br /> HRnet Application
-        </h3>
+        {/* <img className="form-logo" src={logo} alt="Wealth Health's logo" /> */}
+        <h1>HRnet Application</h1>
       </header>
       <div className="container">
-        <NavLink to="/employee-list">View Current Employees</NavLink>
+        <Link className="linkTable" to="/employee-list">
+          View Current Employees
+        </Link>
         <h2>Create Employee</h2>
         <FormEmployee />
       </div>

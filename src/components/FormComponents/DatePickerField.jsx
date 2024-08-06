@@ -1,9 +1,9 @@
-import React from "react";
 import { Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import PropTypes from "prop-types";
 
-const DatePickerField = ({ label, id, control, required, errors }) => (
+const DatePickerField = ({ label, id, control, errors }) => (
   <>
     <label htmlFor={id}>{label}</label>
     <Controller
@@ -18,8 +18,15 @@ const DatePickerField = ({ label, id, control, required, errors }) => (
         />
       )}
     />
-    {errors[id] && <p>{errors[id].message}</p>}
+    {errors[id] && <p className="errorMessage">{errors[id].message}</p>}
   </>
 );
 
 export default DatePickerField;
+
+DatePickerField.propTypes = {
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  control: PropTypes.object.isRequired,
+  errors: PropTypes.object,
+};

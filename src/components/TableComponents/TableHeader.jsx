@@ -1,21 +1,27 @@
-import React from "react";
+import Proptypes from "prop-types";
 import GlobalFilter from "./GlobalFilter";
 import PageSizeSelector from "./PageSizeSelector";
 
 const TableHeader = ({
-  headerGroups,
   setGlobalFilter,
   globalFilter,
   setPageSize,
   pageSize,
 }) => (
-  <div className="TableHeader">
+  <div className="tableHeader">
+    <PageSizeSelector pageSize={pageSize} setPageSize={setPageSize} />
     <GlobalFilter
       globalFilter={globalFilter}
       setGlobalFilter={setGlobalFilter}
     />
-    <PageSizeSelector pageSize={pageSize} setPageSize={setPageSize} />
   </div>
 );
 
 export default TableHeader;
+
+TableHeader.propTypes = {
+  setGlobalFilter: Proptypes.func.isRequired,
+  globalFilter: Proptypes.string,
+  setPageSize: Proptypes.func.isRequired,
+  pageSize: Proptypes.number.isRequired,
+};

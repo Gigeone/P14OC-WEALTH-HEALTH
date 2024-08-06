@@ -1,3 +1,4 @@
+import Proptypes from "prop-types";
 import PaginationButton from "./PaginationButon";
 
 const Pagination = ({
@@ -39,3 +40,13 @@ const Pagination = ({
 );
 
 export default Pagination;
+
+Pagination.propTypes = {
+  pageIndex: Proptypes.number.isRequired,
+  pageOptions: Proptypes.array.isRequired,
+  previousPage: Proptypes.func.isRequired,
+  nextPage: Proptypes.func.isRequired,
+  canPreviousPage: Proptypes.bool.isRequired,
+  canNextPage: Proptypes.bool.isRequired,
+  page: Proptypes.array.isRequired,
+};

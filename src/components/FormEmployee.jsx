@@ -11,23 +11,10 @@ import SelectField from "./FormComponents/SelectField";
 import SubmitButton from "./FormComponents/SubmitButton";
 import TextField from "./FormComponents/TextField";
 
-// const Modal = () =>
-//   import("react-modal-component-from-mathgh").then((module) => {
-//     return { default: module.Modal };
-//   });
 const FormEmployee = () => {
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(true);
-  // const [loading, setLoading] = useState(true);
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [dateOfBirth, setDateOfBirth] = useState(null);
-  // const [startDate, setStartDate] = useState(null);
-  // const [street, setStreet] = useState("");
-  // const [city, setCity] = useState("");
-  // const [state, setState] = useState("");
-  // const [zipCode, setZipCode] = useState("");
-  // const [department, setDepartment] = useState("Sales");
+  const [isOpen, setIsOpen] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -130,9 +117,18 @@ const FormEmployee = () => {
         />
         {/* <button onClick={() => setIsOpen(true)}>Open Modal</button> */}
       </form>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal
+        className="customModal"
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      >
         {/* <h1>Hello from Modal</h1> */}
-        <p>Employee added</p>
+        <div className="customModal__header">
+          <h2>Success</h2>
+        </div>
+        <div className="customModal__body">
+          <p>Employee Created!</p>
+        </div>
       </Modal>
     </div>
   );

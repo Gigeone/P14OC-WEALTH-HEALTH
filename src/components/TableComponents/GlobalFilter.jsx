@@ -1,4 +1,4 @@
-import React from "react";
+import Proptypes from "prop-types";
 
 const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
   return (
@@ -15,3 +15,8 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
 };
 
 export default GlobalFilter;
+
+GlobalFilter.propTypes = {
+  globalFilter: Proptypes.string,
+  setGlobalFilter: Proptypes.func,
+};

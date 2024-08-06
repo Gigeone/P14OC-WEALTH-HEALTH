@@ -1,6 +1,8 @@
+import Proptypes from "prop-types";
+
 const PageSizeSelector = ({ pageSize, setPageSize }) => {
   return (
-    <div>
+    <div className="pageSizeSelector">
       <label htmlFor="numberList">Show </label>
       <select
         id="numberList"
@@ -20,3 +22,8 @@ const PageSizeSelector = ({ pageSize, setPageSize }) => {
 };
 
 export default PageSizeSelector;
+
+PageSizeSelector.propTypes = {
+  pageSize: Proptypes.number.isRequired,
+  setPageSize: Proptypes.func.isRequired,
+};

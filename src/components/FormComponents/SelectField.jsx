@@ -1,4 +1,6 @@
-const SelectField = ({ label, id, register, required, options, errors }) => (
+import PropTypes from "prop-types";
+
+const SelectField = ({ label, id, register, options, errors }) => (
   <>
     <label htmlFor={id}>{label}</label>
     <select id={id} {...register(id, { required: `${label} is required` })}>
@@ -9,8 +11,17 @@ const SelectField = ({ label, id, register, required, options, errors }) => (
         </option>
       ))}
     </select>
-    {errors[id] && <p>{errors[id].message}</p>}
+    {errors[id] && <p className="errorMessage">{errors[id].message}</p>}
   </>
 );
 
 export default SelectField;
+
+SelectField.propTypes = {
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  register: PropTypes.func.isRequired,
+  required: PropTypes.bool.isRequired,
+  options: PropTypes.array.isRequired,
+  errors: PropTypes.object,
+};

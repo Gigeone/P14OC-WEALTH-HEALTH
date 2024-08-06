@@ -1,4 +1,3 @@
-// import { format } from "date-fns";
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -17,6 +16,12 @@ const getSortingIndicator = (column) => {
   }
   return column.isSortedDesc ? " 🔽" : " 🔼";
 };
+
+// Function to convert date strings to Date objects
+const parseDate = (dateString) => {
+  const [day, month, year] = dateString.split("/");
+  return new Date(`${year}-${month}-${day}`);
+};
 const TableEmployee = () => {
   const employees = useSelector((state) => state.employee);
   console.log(employees);
@@ -28,17 +33,15 @@ const TableEmployee = () => {
       {
         Header: "Date of Birth",
         accessor: "date_birthday",
-        // Cell: ({ value }) => {
-        //   console.log(value);
-        //   return format(value, "dd/MM/yyyy");
-        // },
+        sortType: (a, b) =>
+          parseDate(a.original.date_birthday) -
+          parseDate(b.original.date_birthday),
       },
       {
         Header: "Start Date",
         accessor: "start_date",
-        // Cell: ({ value }) => {
-        //   return format(value, "dd/MM/yyyy");
-        // },
+        sortType: (a, b) =>
+          parseDate(a.original.start_date) - parseDate(b.original.start_date),
       },
       { Header: "Street", accessor: "street" },
       { Header: "City", accessor: "city" },
@@ -48,8 +51,6 @@ const TableEmployee = () => {
     ],
     []
   );
-
-  // const [currentPage, setCurrentPage] = useState(1);
 
   const {
     getTableProps,
@@ -86,41 +87,45 @@ const TableEmployee = () => {
         setPageSize={setPageSize}
         pageSize={pageSize}
       />
-      <table {...getTableProps()} className="display">
-        <thead>
-          {headerGroups.map((headerGroup, index) => (
-            <tr
-              {...headerGroup.getHeaderGroupProps()}
-              key={`headerGroup-${index}`}
-            >
-              {headerGroup.headers.map((column) => (
-                <th
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  key={column.id}
-                >
-                  {column.render("Header")}
-                  {/* Ajouter un indicateur de tri */}
-                  <span>{getSortingIndicator(column)}</span>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {page.map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()} key={row.id}>
-                {row.cells.map((cell) => (
-                  <td {...cell.getCellProps()} key={cell.column.id}>
-                    {cell.render("Cell")}
-                  </td>
+      <div style={{ overflowX: "auto" }}>
+        <table {...getTableProps()} className="display">
+          <thead>
+            {headerGroups.map((headerGroup, index) => (
+              <tr
+                {...headerGroup.getHeaderGroupProps()}
+                key={`headerGroup-${index}`}
+              >
+                {headerGroup.headers.map((column) => (
+                  <th
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                    key={column.id}
+                    style={{ whiteSpace: "nowrap" }}
+                  >
+                    {column.render("Header")}
+                    {/* Ajouter un indicateur de tri */}
+                    <span>{getSortingIndicator(column)}</span>
+                  </th>
                 ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {page.map((row) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()} key={row.id}>
+                  {row.cells.map((cell) => (
+                    <td {...cell.getCellProps()} key={cell.column.id}>
+                      {cell.render("Cell")}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
       <Pagination
         pageIndex={pageIndex}
         pageOptions={pageOptions}
@@ -130,29 +135,6 @@ const TableEmployee = () => {
         canNextPage={canNextPage}
         page={page}
       />
-      {/* <section className="pagination">
-        <span>
-          Showing {""}
-          <strong>
-            {pageIndex + 1} to {pageOptions.length} of {page.length}
-          </strong>
-          {""} entries
-        </span>
-        <span>
-          Page{" "}
-          <strong>
-            {" "}
-            {pageIndex + 1} of {pageOptions.length}{" "}
-          </strong>
-        </span>
-
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          Previous
-        </button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          Next
-        </button>
-      </section> */}
     </>
   );
 };
