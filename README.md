@@ -1,8 +1,41 @@
-# React + Vite
+# Wealth Health
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projet Openclassroom :
 
-Currently, two official plugins are available:
+Dans ce projet, vous participerez à la conversion d’une application de jQuery vers React pour une grande société financière.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Votre mission principale sera de refondre les pages clés de l’application en remplaçant un plugin jQuery spécifique par un composant React.
+Cela impliquera une compréhension approfondie des deux technologies et leur interaction.
+
+Vous serez chargé de mesurer les performances de l'application avant et après la conversion. Cette analyse de performance vous permettra de quantifier les avantages de la migration vers React.
+
+La documentation du composant converti sera une étape importante de votre travail. Cela comprendra la rédaction de documents techniques détaillant l'architecture du composant, son fonctionnement, et les raisons de sa conception.
+
+Vous livrerez les résultats de votre travail avec des rapports détaillés, y compris des analyses de performance et des explications sur les choix techniques effectués pendant la conversion.
+
+## Table des matières
+
+- [Installation](#installation)
+- [Usage](#usage)
+
+## Installation
+
+Instructions pour installer le projet localement.
+
+```bash
+# Clonez le dépôt
+git clone https://github.com/Gigeone/P14OC-WEALTH-HEALTH.git
+
+# Accédez au répertoire du projet
+cd P14OC-WEALTH-HEALTH
+
+# Installez les dépendances
+npm install
+```
+
+## Usage
+
+```bash
+# Commande pour démarrer le projet
+npm run dev
+```
