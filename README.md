@@ -1,5 +1,20 @@
 # Wealth Health
 
+<p align="center">
+<a href="https://www.youtube.com/c/faisonslepoint" target="_blank" style="font-size:22px">FaisonsLePoint</a>
+<br><br>
+</p>
+<p align="center">
+    <img src="https://img.shields.io/badge/React-v18.2.0-blue">
+    <img src="https://img.shields.io/badge/React--Router-6.3.0-blue">
+    <img src="https://img.shields.io/badge/license-MIT-green">
+    <img src="https://img.shields.io/badge/build-passing-brightgreen">
+    <img src="https://img.shields.io/badge/node--lts-16.15.1-brightgreen">
+    <img src="https://img.shields.io/badge/npm-8.13.2-blue">
+    <img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UC0WQ4H6f2W14eS45bRDfp1Q?style=social">
+  <br><br><br>
+</p>
+
 Projet Openclassroom :
 
 Dans ce projet, vous participerez à la conversion d’une application de jQuery vers React pour une grande société financière.
