@@ -4,6 +4,7 @@ import "./App.css";
 import CreateEmployee from "./pages/CreateEmployee";
 import EmployeeList from "./pages/EmployeeList";
 import ErrorPage from "./pages/ErrorPage";
+import "react-datepicker/dist/react-datepicker.css";
 
 function App() {
   return (
