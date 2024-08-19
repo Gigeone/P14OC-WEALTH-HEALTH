@@ -108,23 +108,23 @@ th {
   background-color: #f2f2f2; /* Optionnel : ajouter un fond pour les en-têtes */
 }
 
-
-.modal {  
+.modal {
   /* position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */
   /* width: 80%; */
-/* mediaQueries */
+  /* mediaQueries */
 
-@media screen and (max-width: 760px) {
-  .pagination {
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
+  @media screen and (max-width: 760px) {
+    .pagination {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
 
-  .tableHeader {
-    flex-direction: column;
-    flex-wrap: nowrap;
+    .tableHeader {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
   }
 }
