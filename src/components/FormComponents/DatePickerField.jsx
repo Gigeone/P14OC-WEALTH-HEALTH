@@ -1,6 +1,7 @@
-import { Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import { Controller } from "react-hook-form";
+// import "react-datepicker/dist/react-datepicker.css";
 import PropTypes from "prop-types";
 
 const DatePickerField = ({ label, id, control, errors }) => (
